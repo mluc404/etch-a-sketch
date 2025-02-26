@@ -4,6 +4,7 @@
   border: black solid 3px;
   display: flex;
   flex-wrap: wrap;
+  margin: 5px;
 }
 
 .square {
@@ -12,14 +13,14 @@
   box-sizing: border-box;
 }
 
-button {
+/* button {
   margin: 5px;
   font-family: "Courier New", Courier, monospace;
   font-weight: 600;
   font-size: medium;
   border-radius: 5px;
   padding: 5px;
-}
+} */
 
 #label {
   font-family: "Courier New", Courier, monospace;
@@ -30,4 +31,15 @@ button {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+button,
+input[type="color"] {
+  margin: 5px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 600;
+  font-size: medium;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
 }

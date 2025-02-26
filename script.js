@@ -53,9 +53,22 @@ function createGrid(numSide) {
     square.style.height = `${squareSize}px`;
 
     // Add hover effect color inside the loop for each square
-    square.addEventListener("mouseover", (e) => {
+    // Make sure color on changes when the mouse is clicked
+    let isMouseDown = false;
+    container.addEventListener("mousedown", () => (isMouseDown = true));
+    container.addEventListener("mouseup", () => (isMouseDown = false));
+    container.addEventListener("mouseleave", () => (isMouseDown = false));
+
+    square.addEventListener("mouseover", (event) => {
+      if (isMouseDown) {
+        event.target.style.backgroundColor = currentColor;
+      }
+    });
+
+    square.addEventListener("click", (e) => {
       e.target.style.backgroundColor = currentColor;
     });
+
     // Append each square into container
     container.appendChild(square);
   }
