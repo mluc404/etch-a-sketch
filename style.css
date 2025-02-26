@@ -16,7 +16,6 @@ button {
   font-family: "Courier New", Courier, monospace;
   font-weight: 600;
   font-size: medium;
-  /* border: black solid 2px; */
   border-radius: 5px;
   padding: 5px;
 }
