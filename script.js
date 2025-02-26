@@ -9,39 +9,44 @@
 // to input a number for the size of the canvas,
 // then trigger the function to create the canvas.
 
-// Get user input and create canvas
+// Select DOM elements
 let askButton = document.querySelector("#askButton");
 let container = document.querySelector("#container");
 let containerWidth = parseInt(window.getComputedStyle(container).width);
 
+// Set canvas size
 askButton.addEventListener("click", () => {
-  // Clean canvas first
-  container.innerHTML = "";
-
-  // Get user input and create canvas
-  let input = parseInt(prompt("How many squares per side?"));
+  let input = parseInt(prompt("How many squares per side? (Max: 100)"));
   let numSide = parseInt(input);
+
+  // check for input error
+  if (isNaN(numSide) || numSide < 1 || numSide > 100) {
+    alert("Please enter a valid number between 1 and 100.");
+    return;
+  }
   createGrid(numSide);
 });
 
 // Function to Create canvas
 function createGrid(numSide) {
+  // Clean previous grid
+  while (container.firstChild) {
+    container.removeChild(container.firstChild);
+  }
+  // Creat squares
   let squareSize = containerWidth / numSide;
 
-  for (let i = 0; i < numSide; i++) {
-    for (let k = 0; k < numSide; k++) {
-      let square = document.createElement("div");
-      square.setAttribute("class", "square");
-      square.style.width = squareSize.toString() + "px";
-      square.style.height = squareSize.toString() + "px";
-      container.appendChild(square);
-    }
-  }
-  // color on squares when mouse over
-  let allSquares = document.querySelectorAll(".square");
-  allSquares.forEach((square) => {
+  for (let i = 0; i < numSide * numSide; i++) {
+    let square = document.createElement("div");
+    square.setAttribute("class", "square");
+    square.style.width = `${squareSize}px`;
+    square.style.height = `${squareSize}px`;
+
+    // Add hover effect inside the loop for each square
     square.addEventListener("mouseover", (e) => {
       e.target.style.backgroundColor = "#575757";
     });
-  });
+    // Append each square into container
+    container.appendChild(square);
+  }
 }
