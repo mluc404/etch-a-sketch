@@ -7,7 +7,8 @@
 }
 
 .square {
-  border: #7c7c7c solid 1px;
+  border: solid 1px;
+  border-color: rgb(48, 48, 48, 0.3);
   box-sizing: border-box;
 }
 
@@ -18,4 +19,15 @@ button {
   font-size: medium;
   border-radius: 5px;
   padding: 5px;
+}
+
+#label {
+  font-family: "Courier New", Courier, monospace;
+  font-size: medium;
+}
+
+#top {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }

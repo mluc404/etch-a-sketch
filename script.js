@@ -13,6 +13,16 @@
 let askButton = document.querySelector("#askButton");
 let container = document.querySelector("#container");
 let containerWidth = parseInt(window.getComputedStyle(container).width);
+let colorPicker = document.querySelector("#colorPicker");
+let clearButton = document.querySelector("#clearButton");
+// State variables
+let currentColor = colorPicker.value;
+
+// Set color
+colorPicker.addEventListener("input", (e) => {
+  currentColor = e.target.value;
+  console.log(currentColor);
+});
 
 // Set canvas size
 askButton.addEventListener("click", () => {
@@ -42,11 +52,18 @@ function createGrid(numSide) {
     square.style.width = `${squareSize}px`;
     square.style.height = `${squareSize}px`;
 
-    // Add hover effect inside the loop for each square
+    // Add hover effect color inside the loop for each square
     square.addEventListener("mouseover", (e) => {
-      e.target.style.backgroundColor = "#575757";
+      e.target.style.backgroundColor = currentColor;
     });
     // Append each square into container
     container.appendChild(square);
   }
 }
+
+// Clear the canvas but keep the grid
+clearButton.addEventListener("click", () => {
+  document.querySelectorAll(".square").forEach((square) => {
+    square.style.backgroundColor = "white";
+  });
+});
