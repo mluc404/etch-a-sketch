@@ -13,15 +13,6 @@
   box-sizing: border-box;
 }
 
-/* button {
-  margin: 5px;
-  font-family: "Courier New", Courier, monospace;
-  font-weight: 600;
-  font-size: medium;
-  border-radius: 5px;
-  padding: 5px;
-} */
-
 #label {
   font-family: "Courier New", Courier, monospace;
   font-size: medium;
@@ -42,4 +33,14 @@ input[type="color"] {
   border-radius: 5px;
   padding: 5px;
   cursor: pointer;
+}
+
+#colorPicker {
+  width: 50px;
+  height: 30px;
+  border: rgb(47, 47, 47) solid 2px;
+}
+
+h1 {
+  font-family: "Courier New", Courier, monospace;
 }

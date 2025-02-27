@@ -2,15 +2,14 @@
 // Data & Actions
 // Data: the number of sides from user input
 // Actions:
-// getNumSides()
 // createGrid()
 
-// When the askButton is clicked, it'll prompt the user
-// to input a number for the size of the canvas,
-// then trigger the function to create the canvas.
+// When one of the 3 sizes buttons is clicked, it'll
+// trigger the function to create the canvas.
 
 // Select DOM elements
-let askButton = document.querySelector("#askButton");
+let sizeButtons = document.querySelectorAll(".sizeButton");
+// let askButton = document.querySelector("#askButton");
 let container = document.querySelector("#container");
 let containerWidth = parseInt(window.getComputedStyle(container).width);
 let colorPicker = document.querySelector("#colorPicker");
@@ -25,17 +24,38 @@ colorPicker.addEventListener("input", (e) => {
 });
 
 // Set canvas size
-askButton.addEventListener("click", () => {
-  let input = parseInt(prompt("How many squares per side? (Max: 100)"));
-  let numSide = parseInt(input);
-
-  // check for input error
-  if (isNaN(numSide) || numSide < 1 || numSide > 100) {
-    alert("Please enter a valid number between 1 and 100.");
-    return;
-  }
-  createGrid(numSide);
+sizeButtons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    console.log(e.target.id);
+    let numSide = 0;
+    switch (e.target.id) {
+      case "10": {
+        numSide = 10;
+        break;
+      }
+      case "20": {
+        numSide = 20;
+        break;
+      }
+      case "30": {
+        numSide = 30;
+      }
+    }
+    createGrid(numSide);
+  });
 });
+
+// askButton.addEventListener("click", () => {
+//   let input = parseInt(prompt("How many squares per side? (Max: 100)"));
+//   let numSide = parseInt(input);
+
+//   // check for input error
+//   if (isNaN(numSide) || numSide < 1 || numSide > 100) {
+//     alert("Please enter a valid number between 1 and 100.");
+//     return;
+//   }
+//   createGrid(numSide);
+// });
 
 // Function to Create canvas
 function createGrid(numSide) {
