@@ -1,3 +1,8 @@
+body {
+  justify-items: center;
+  background-color: rgb(231, 225, 227);
+}
+
 #container {
   width: 400px;
   height: 400px;
@@ -5,6 +10,7 @@
   display: flex;
   flex-wrap: wrap;
   margin: 5px;
+  background-color: white;
 }
 
 .square {
@@ -33,6 +39,22 @@ input[type="color"] {
   border-radius: 5px;
   padding: 5px;
   cursor: pointer;
+}
+
+button:active {
+  animation: flash 0.2s ease-in-out;
+}
+
+@keyframes flash {
+  0% {
+    filter: brightness(1.2);
+  }
+  50% {
+    filter: brightness(0.8);
+  }
+  100% {
+    filter: brightness(1);
+  }
 }
 
 #colorPicker {

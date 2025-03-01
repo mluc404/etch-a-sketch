@@ -45,18 +45,6 @@ sizeButtons.forEach((button) => {
   });
 });
 
-// askButton.addEventListener("click", () => {
-//   let input = parseInt(prompt("How many squares per side? (Max: 100)"));
-//   let numSide = parseInt(input);
-
-//   // check for input error
-//   if (isNaN(numSide) || numSide < 1 || numSide > 100) {
-//     alert("Please enter a valid number between 1 and 100.");
-//     return;
-//   }
-//   createGrid(numSide);
-// });
-
 // Function to Create canvas
 function createGrid(numSide) {
   // Clean previous grid
@@ -100,3 +88,5 @@ clearButton.addEventListener("click", () => {
     square.style.backgroundColor = "white";
   });
 });
+
+window.onload = createGrid(10);
